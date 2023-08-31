@@ -2,7 +2,7 @@ import pandas as pd
 import subprocess
 import sys
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", "xgboost"])
+subprocess.check_call(["/path/to/python/executable", "-m", "pip", "install", "xgboost"])
 from xgboost import XGBClassifier
 from imblearn.over_sampling import RandomOverSampler
 import streamlit as st
