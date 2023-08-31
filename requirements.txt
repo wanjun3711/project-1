@@ -1,1 +1,1 @@
-xgboost==<version>
+xgboost==1.3.3
