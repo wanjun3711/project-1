@@ -1,4 +1,4 @@
-imblearn.over_sampling
+imbalanced-learn
 streamlit
 pandas
 numpy
