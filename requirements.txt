@@ -1,3 +1,4 @@
+XGBClassifier
 streamlit
 pandas
 numpy
