@@ -3,10 +3,20 @@ from xgboost import XGBClassifier
 from imblearn.over_sampling import RandomOverSampler
 import streamlit as st
 
-# 加载模型
-model_path = 'xgb_model.model'
+# 读取训练集数据
+train_data = pd.read_txt('C:/Users/wanjun3711/Desktop/train_data - 副本.xlsx')
+
+# 分离输入特征和目标变量
+X = train_data[['Age', 'Primary Site', 'Histologic', 'Tumor grade', 'T stage', 'N stage', 'Surgery', 'Radiation', 'Chemotherapy', 'Bone metastasis', 'Lung metastasis']]
+y = train_data['Liver metastasis']
+
+# 过采样预处理
+oversampler = RandomOverSampler()
+X_resampled, y_resampled = oversampler.fit_resample(X, y)
+
+# 创建并训练XGB模型
 xgb_model = XGBClassifier()
-xgb_model.load_model(model_path)
+xgb_model.fit(X_resampled, y_resampled)
 
 # 特征映射
 class_mapping = {0: "No liver metastasis", 1: "Esophagus cancer liver metastasis"}
