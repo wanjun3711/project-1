@@ -18,6 +18,7 @@ X_resampled, y_resampled = oversampler.fit_resample(X, y)
 xgb_model = XGBClassifier()
 xgb_model.fit(X_resampled, y_resampled)
 
+
 # 特征映射
 class_mapping = {0: "No liver metastasis", 1: "Esophagus cancer liver metastasis"}
 age_mapper = {"<70": 3, "70-80": 2, ">=80": 1}
@@ -55,6 +56,7 @@ def predict_liver_metastasis(age, primary_site, histologic, tumor_grade,
     probability = xgb_model.predict_proba(input_data)[0][1]  # 获取属于类别1的概率
     class_label = class_mapping[prediction]
     return class_label, probability
+                                 
 # 创建Web应用程序
 st.title("XGBoost Model Predicting liver Metastasis of Esophageal Cancer")
 st.sidebar.write("Variables")
