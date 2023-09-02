@@ -56,7 +56,7 @@ def predict_liver_metastasis(age, primary_site, histologic, tumor_grade,
     class_label = class_mapping[prediction]
     return class_label, probability
 # 创建Web应用程序
-st.title("Prediction of liver metastasis of esophageal cancer")
+st.title("XGBoost Model Predicting liver Metastasis of Esophageal Cancer")
 st.sidebar.write("Variables")
 
 age = st.sidebar.selectbox("Age", options=list(age_mapper.keys()))
