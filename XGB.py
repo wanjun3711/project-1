@@ -4,7 +4,7 @@ from imblearn.over_sampling import RandomOverSampler
 import streamlit as st
 
 # 读取训练集数据
-train_data = pd.read_csv('train_data.csv')
+train_data = pd.read_csv('train_data .csv')
 
 # 分离输入特征和目标变量
 X = train_data[['Age', 'Primary Site', 'Histologic', 'Tumor grade', 'T stage', 'N stage', 'Surgery', 'Radiation', 'Chemotherapy', 'Bone metastasis', 'Lung metastasis']]
