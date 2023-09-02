@@ -3,6 +3,20 @@ from xgboost import XGBClassifier
 from imblearn.over_sampling import RandomOverSampler
 import streamlit as st
 
+# 读取训练集数据
+train_data = pd.read_csv('train_data .csv')
+
+# 分离输入特征和目标变量
+X = train_data[['Age', 'Primary Site', 'Histologic', 'Tumor grade', 'T stage', 'N stage', 'Surgery', 'Radiation', 'Chemotherapy', 'Bone metastasis', 'Lung metastasis']]
+y = train_data['Liver metastasis']
+
+# 过采样预处理
+oversampler = RandomOverSampler()
+X_resampled, y_resampled = oversampler.fit_resample(X, y)
+
+# 创建并训练XGB模型
+xgb_model = XGBClassifier()
+xgb_model.fit(X_resampled, y_resampled)
 
 # 特征映射
 class_mapping = {0: "No liver metastasis", 1: "Esophagus cancer liver metastasis"}
@@ -19,21 +33,6 @@ radiation_mapper = {"NO": 2, "Yes": 1}
 chemotherapy_mapper = {"NO": 2, "Yes": 1}
 bone_metastasis_mapper = {"NO": 2, "Yes": 1}
 lung_metastasis_mapper = {"NO": 2, "Yes": 1}
-
-# 读取训练集数据
-train_data = pd.read_csv('train_data .csv')
-
-# 分离输入特征和目标变量
-X = train_data[['Age', 'Primary Site', 'Histologic', 'Tumor grade', 'T stage', 'N stage', 'Surgery', 'Radiation', 'Chemotherapy', 'Bone metastasis', 'Lung metastasis']]
-y = train_data['Liver metastasis']
-
-# 过采样预处理
-oversampler = RandomOverSampler()
-X_resampled, y_resampled = oversampler.fit_resample(X, y)
-
-# 创建并训练XGB模型
-xgb_model = XGBClassifier()
-xgb_model.fit(X_resampled, y_resampled)
 
 # 预测函数
 def predict_liver_metastasis(age, primary_site, histologic, tumor_grade,
