@@ -1,4 +1,4 @@
 # install
 pip install -r requirements.txt
 # run
-streamlit run XGB.py
+streamlit run gbm.py
