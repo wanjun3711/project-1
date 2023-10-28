@@ -2,4 +2,4 @@ imbalanced-learn
 streamlit
 pandas
 numpy
-xgboost
+GradientBoostingClassifier
