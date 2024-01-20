@@ -17,11 +17,8 @@ gbm_model = GradientBoostingClassifier()
 gbm_model.fit(X, y)
 
 # 保存模型
-model_path = 'gbm_model.model'
+model_path = 'gbm_model.pkl'
 joblib.dump(gbm_model, model_path)
-
-# 加载模型
-gbm_model = joblib.load(model_path)
 
 # 特征映射
 feature_order = [
@@ -42,19 +39,20 @@ lung_metastasis_mapper = {"NO": 0, "Yes": 1}
 def predict_bone_metastasis(age, sex, histologic, grade,
                             t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis):
     input_data = pd.DataFrame({ 
-        'Age': [age]
-        'sex': [sex_mapper[sex]],
+        'Age': [age],
+        'Sex': [sex_mapper[sex]],
         'Histologic': [histologic_mapper[histologic]],
         'Grade': [grade_mapper[grade]],
         'T stage': [t_stage_mapper[t_stage]],
         'N stage': [n_stage_mapper[n_stage]],
         'Brain metastasis': [brain_metastasis_mapper[brain_metastasis]],
         'Liver metastasis': [liver_metastasis_mapper[liver_metastasis]],
-        'Lung metastasis': [bone_metastasis_mapper[lung_metastasis]],
-    }, columns=feature_order)
+        'Lung metastasis': [lung_metastasis_mapper[lung_metastasis]],
+    }, columns=feature_order[:-1])
 
-    prediction = gbm_model.predict(input_data)[0]
-    probability = gbm_model.predict_proba(input_data)[0][1]  # 获取属于类别1的概率
+    gbm_model_loaded = joblib.load(model_path)
+    prediction = gbm_model_loaded.predict(input_data)[0]
+    probability = gbm_model_loaded.predict_proba(input_data)[0][1]  # 获取属于类别1的概率
     class_label = class_mapping[prediction]
     return class_label, probability
 
