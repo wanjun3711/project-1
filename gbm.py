@@ -61,14 +61,14 @@ st.title("GBM Model Predicting Bone Metastasis of Esophageal Cancer")
 st.sidebar.write("Variables")
 
 age = st.sidebar.number_input("Age", min_value=1, max_value=100, value=50)
-sex = st.sidebar.radio("Sex", options=["Male", "Female"])
+sex = st.sidebar.selectbox("Sex", options=["Male", "Female"])
 histologic = st.sidebar.selectbox("Histologic", options=["Adenocarcinoma", "Squamous–cell carcinoma"])
 grade = st.sidebar.selectbox("Grade", options=["Grade I", "Grade II", "Grade III"])
 t_stage = st.sidebar.selectbox("T Stage", options=["T1", "T2", "T3", "T4"])
 n_stage = st.sidebar.selectbox("N Stage", options=["N0", "N1", "N2", "N3"])
-brain_metastasis = st.sidebar.radio("Brain Metastasis", options=["NO", "Yes"])
-liver_metastasis = st.sidebar.radio("Liver Metastasis", options=["NO", "Yes"])
-lung_metastasis = st.sidebar.radio("Lung Metastasis", options=["NO", "Yes"])
+brain_metastasis = st.sidebar.selectbox("Brain Metastasis", options=["NO", "Yes"])
+liver_metastasis = st.sidebar.selectbox("Liver Metastasis", options=["NO", "Yes"])
+lung_metastasis = st.sidebar.selectbox("Lung Metastasis", options=["NO", "Yes"])
 
 # 预测按钮
 if st.button("Predict"):
