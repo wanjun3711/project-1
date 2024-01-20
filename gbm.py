@@ -5,7 +5,7 @@ import streamlit as st
 import joblib
 
 # 读取训练集数据
-train_data = pd.read_excel('train_data - 副本.csv')
+train_data = pd.read_csv('train_data - 副本.csv')
 
 # 分离输入特征和目标变量
 X = train_data[['Age', 'Sex', 'Histologic', 'Grade', 'T stage', 'N stage',
