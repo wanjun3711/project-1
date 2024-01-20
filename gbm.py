@@ -88,4 +88,4 @@ if st.button("Predict"):
                                                  t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis)
 
     st.write("Class Label: ", prediction)
-    st.write("Probability: ", probability)
+    st.write("Probability of developing bone metastasis: ", probability)
