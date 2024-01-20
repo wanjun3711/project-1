@@ -4,9 +4,15 @@ import streamlit as st
 import joblib
 import os
 
+# 获取当前文件所在目录的路径
+base_dir = os.path.dirname(os.path.realpath(__file__))
+
+# 模型文件路径
+model_path = os.path.join(base_dir, "gbm_model.model")
+
 # 加载模型
-model_path = os.path.join(os.getcwd(), 'gbm_model.model')  # 使用绝对路径加载模型
 gbm_model = joblib.load(model_path)
+
 
 # 特征映射
 feature_order = [
