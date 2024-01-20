@@ -1,16 +1,12 @@
 import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
+from imblearn.over_sampling import RandomOverSampler
 import streamlit as st
 import joblib
-import os
-
-# 获取当前文件所在目录的路径
-base_dir = os.path.dirname(os.path.realpath(__file__))
-
-# 模型文件路径
-model_path = os.path.join(base_dir, "gbm_model.model")
 
 # 加载模型
+model_path = 'gbm_model.model'
+gbm_model = GradientBoostingClassifier()
 gbm_model = joblib.load(model_path)
 
 
@@ -80,4 +76,3 @@ if st.button("Predict"):
 
     st.write("Class Label: ", prediction)
     st.write("Probability: ", probability)
-    print(model_path)
