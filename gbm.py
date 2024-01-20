@@ -6,7 +6,6 @@ import joblib
 
 # 加载模型
 model_path = 'gbm_model.model'
-gbm_model = GradientBoostingClassifier()
 gbm_model = joblib.load(model_path)
 
 
