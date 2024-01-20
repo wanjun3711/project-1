@@ -41,27 +41,17 @@ lung_metastasis_mapper = {"NO": 0, "Yes": 1}
 # 预测函数
 def predict_bone_metastasis(age, sex, histologic, grade,
                             t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis):
-    sex = sex_mapper[sex]
-    histologic = histologic_mapper[histologic]
-    grade = grade_mapper[grade]
-    t_stage = t_stage_mapper[t_stage]
-    n_stage = n_stage_mapper[n_stage]
-    brain_metastasis = brain_metastasis_mapper[brain_metastasis]
-    liver_metastasis = liver_metastasis_mapper[liver_metastasis]
-    lung_metastasis = lung_metastasis_mapper[lung_metastasis]
-
-    input_data = pd.DataFrame({
-        'Age': [age],
-        'Sex': [sex],
-        'Histologic': [histologic],
-        'Grade': [grade],
-        'T stage': [t_stage],
-        'N stage': [n_stage],
-        'Brain metastasis': [brain_metastasis],
-        'Liver metastasis': [liver_metastasis],
-        'Lung metastasis': [lung_metastasis],
-        'Bone metastasis': [bone_metastasis],
-    })
+    input_data = pd.DataFrame({ 
+        'Age': [age]
+        'sex': [sex_mapper[sex]],
+        'Histologic': [histologic_mapper[histologic]],
+        'Grade': [grade_mapper[grade]],
+        'T stage': [t_stage_mapper[t_stage]],
+        'N stage': [n_stage_mapper[n_stage]],
+        'Brain metastasis': [brain_metastasis_mapper[brain_metastasis]],
+        'Liver metastasis': [liver_metastasis_mapper[liver_metastasis]],
+        'Lung metastasis': [bone_metastasis_mapper[lung_metastasis]],
+    }, columns=feature_order)
 
     prediction = gbm_model.predict(input_data)[0]
     probability = gbm_model.predict_proba(input_data)[0][1]  # 获取属于类别1的概率
