@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
 import streamlit as st
 import joblib
+import imblearn
 
 # 加载模型
 model_path = 'gbm_model.model'
@@ -71,5 +72,4 @@ if st.button("Predict"):
     prediction, probability = predict_bone_metastasis(age, sex, histologic, grade,
                                                  t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis)
 
-    st.write("Class Label: ", prediction)  # 结果显示在右侧的列中
-    st.write("Probability of developing bone metastasis: ", probability)  # 结果显示在右侧的列中
+    st.write("Class Label: ", prediction)  # 结
