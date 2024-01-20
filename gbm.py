@@ -4,7 +4,8 @@ import streamlit as st
 import joblib
 
 # 加载模型
-model_path = 'gbm_model_bone_metastasis.model'
+model_path = 'gbm_model.model'
+gbm_model = GradientBoostingClassifier()
 gbm_model = joblib.load(model_path)
 
 # 特征映射
