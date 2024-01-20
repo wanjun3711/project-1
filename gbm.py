@@ -80,3 +80,4 @@ if st.button("Predict"):
 
     st.write("Class Label: ", prediction)
     st.write("Probability: ", probability)
+    print(model_path)
