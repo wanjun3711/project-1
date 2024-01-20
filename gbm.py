@@ -4,10 +4,24 @@ from imblearn.over_sampling import RandomOverSampler
 import streamlit as st
 import joblib
 
-# 加载模型
-model_path = 'gbm_model.model'
-gbm_model = joblib.load(model_path)
+# 读取训练集数据
+train_data = pd.read_excel('train_data - 副本.csv')
 
+# 分离输入特征和目标变量
+X = train_data[['Age', 'Sex', 'Histologic', 'Grade', 'T stage', 'N stage',
+                'Brain metastasis', 'Liver metastasis', 'Lung metastasis']]
+y = train_data['Bone metastasis']
+
+# 创建并训练GBM模型
+gbm_model = GradientBoostingClassifier()
+gbm_model.fit(X, y)
+
+# 保存模型
+model_path = 'gbm_model.model'
+joblib.dump(gbm_model, model_path)
+
+# 加载模型
+gbm_model = joblib.load(model_path)
 
 # 特征映射
 feature_order = [
