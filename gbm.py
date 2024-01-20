@@ -75,5 +75,5 @@ if st.button("Predict"):
     prediction, probability = predict_bone_metastasis(age, sex, histologic, grade,
                                                  t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis)
 
-    st.write("Class Label: ", prediction)
+    st.write("Probability of developing bone metastasis: ", prediction)
     st.write("Probability of developing bone metastasis: ", probability)
