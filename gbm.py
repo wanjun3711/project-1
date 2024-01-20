@@ -2,10 +2,10 @@ import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
 import streamlit as st
 import joblib
-import imblearn
+import os
 
 # 加载模型
-model_path = 'gbm_model.model'
+model_path = os.path.join(os.getcwd(), 'gbm_model.model')  # 使用绝对路径加载模型
 gbm_model = joblib.load(model_path)
 
 # 特征映射
@@ -26,7 +26,7 @@ lung_metastasis_mapper = {"NO": 0, "Yes": 1}
 # 预测函数
 def predict_bone_metastasis(age, sex, histologic, grade,
                             t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis, bone_metastasis):
-    sex = sex_mapper[sex]
+   sex = sex_mapper[sex]
     histologic = histologic_mapper[histologic]
     grade = grade_mapper[grade]
     t_stage = t_stage_mapper[t_stage]
