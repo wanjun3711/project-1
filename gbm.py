@@ -61,7 +61,7 @@ def predict_bone_metastasis(age, sex, histologic, grade,
         'Liver metastasis': [liver_metastasis],
         'Lung metastasis': [lung_metastasis],
         'Bone metastasis': [bone_metastasis],
-    }, columns=feature_order)
+    })
 
     prediction = gbm_model.predict(input_data)[0]
     probability = gbm_model.predict_proba(input_data)[0][1]  # 获取属于类别1的概率
@@ -85,7 +85,7 @@ lung_metastasis = st.sidebar.radio("Lung Metastasis", options=["No", "Yes"])
 # 预测按钮
 if st.button("Predict"):
     prediction, probability = predict_bone_metastasis(age, sex, histologic, grade,
-                                                 t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis)
+                                                 t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis, 0)
 
     st.write("Class Label: ", prediction)
     st.write("Probability of developing bone metastasis: ", probability)
