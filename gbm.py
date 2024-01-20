@@ -26,7 +26,7 @@ lung_metastasis_mapper = {"NO": 0, "Yes": 1}
 # 预测函数
 def predict_bone_metastasis(age, sex, histologic, grade,
                             t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis, bone_metastasis):
-   sex = sex_mapper[sex]
+    sex = sex_mapper[sex]
     histologic = histologic_mapper[histologic]
     grade = grade_mapper[grade]
     t_stage = t_stage_mapper[t_stage]
