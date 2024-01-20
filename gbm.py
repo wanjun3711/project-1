@@ -6,7 +6,6 @@ import imblearn
 
 # 加载模型
 model_path = 'gbm_model.model'
-gbm_model = GradientBoostingClassifier()
 gbm_model = joblib.load(model_path)
 
 # 特征映射
@@ -68,8 +67,10 @@ brain_metastasis = st.sidebar.radio("Brain Metastasis", options=["No", "Yes"])
 liver_metastasis = st.sidebar.radio("Liver Metastasis", options=["No", "Yes"])
 lung_metastasis = st.sidebar.radio("Lung Metastasis", options=["No", "Yes"])
 
+# 预测按钮
 if st.button("Predict"):
     prediction, probability = predict_bone_metastasis(age, sex, histologic, grade,
                                                  t_stage, n_stage, brain_metastasis, liver_metastasis, lung_metastasis)
 
-    st.write("Class Label: ", prediction)  # 结
+    st.write("Class Label: ", prediction)
+    st.write("Probability: ", probability)
