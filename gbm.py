@@ -5,7 +5,7 @@ import streamlit as st
 import joblib
 
 # Load the training data
-train_data = pd.read_csv('train_data.csv')
+train_data = pd.read_csv('train_data 副本.csv')
 
 # Separate input features and target variable
 X = train_data[['Age', 'Sex', 'Tumor histology', 'T stage', 'N stage', 
