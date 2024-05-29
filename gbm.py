@@ -8,8 +8,9 @@ import joblib
 train_data = pd.read_csv('train_data 副本.csv')
 
 # Separate input features and target variable
-X = train_data[['Age', 'Sex', 'Tumor histology', 'T stage', 'N stage', 
-                'surgery', 'Chemotherapy', 'Brain metastasis', 'Liver metastasis', 'Lung metastasis']]
+X = train_data[['Age', 'Sex', 'Histologic Type', 'T stage', 'N stage',
+                'Surgery', 'Chemotherapy', 'Brain metastases', 
+                'Liver metastases', 'Lung metastases', 'Bone metastases']]
 y = train_data['Bone metastasis']
 
 # Train the LR model
