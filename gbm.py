@@ -11,7 +11,7 @@ train_data = pd.read_csv('train_data 副本.csv')
 X = train_data[['Age', 'Sex', 'Histologic Type', 'T stage', 'N stage',
                 'Surgery', 'Chemotherapy', 'Brain metastases', 
                 'Liver metastases', 'Lung metastases']]
-y = train_data['Bone metastasis']
+y = train_data['Bone metastases']
 
 # Train the LR model
 lr_model = LogisticRegression()
