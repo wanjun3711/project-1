@@ -73,5 +73,5 @@ if st.button("Predict"):
                                                        t_stage, n_stage, surgery, chemotherapy, 
                                                        brain_metastasis, liver_metastasis, lung_metastasis)
 
-    st.write("Probability of developing Bone metastasis:", prediction)
-    st.write("Probability of developing Bone metastasis:", probability)
+    st.write("Predicted Bone metastasis:", prediction)  # Results displayed in the right column
+    st.write("Probability of developing Bone metastasis:", probability)  # Results displayed in the right column
