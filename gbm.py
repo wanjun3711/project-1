@@ -62,11 +62,11 @@ sex = st.sidebar.selectbox("Sex", ('male', 'female'))
 tumor_histology = st.sidebar.selectbox("Tumor histology", ('Adenocarcinoma', 'Squamous–cell carcinoma'))
 t_stage = st.sidebar.selectbox("T stage", ('T1', 'T2', 'T3', 'T4'))
 n_stage = st.sidebar.selectbox("N stage", ('N0', 'N1', 'N2', 'N3'))
-surgery = st.sidebar.radio("Surgery", ('Yes', 'No'))
-chemotherapy = st.sidebar.radio("Chemotherapy", ('Yes', 'No'))
-brain_metastasis = st.sidebar.radio("Brain metastasis", ('Yes', 'No'))
-liver_metastasis = st.sidebar.radio("Liver metastasis", ('Yes', 'No'))
-lung_metastasis = st.sidebar.radio("Lung metastasis", ('Yes', 'No'))
+surgery = st.sidebar.selectbox("Surgery", ('Yes', 'No'))
+chemotherapy = st.sidebar.selectbox("Chemotherapy", ('Yes', 'No'))
+brain_metastasis = st.sidebar.selectbox("Brain metastasis", ('Yes', 'No'))
+liver_metastasis = st.sidebar.selectbox("Liver metastasis", ('Yes', 'No'))
+lung_metastasis = st.sidebar.selectbox("Lung metastasis", ('Yes', 'No'))
 
 if st.button("Predict"):
     prediction, probability = predict_Bone_metastasis(age, sex, tumor_histology, 
