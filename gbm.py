@@ -29,7 +29,7 @@ liver_metastasis_mapper = {'Yes': 1, 'No': 0}
 lung_metastasis_mapper = {'Yes': 1, 'No': 0}
 
 # Class label mapping
-class_mapping = {0: 'Negative', 1: 'Positive'}
+class_mapping = {0: 'No Bone metastasis', 1: 'Esophagus cancer Bone metastasis'}
 
 # Prediction function
 def predict_Bone_metastasis(age, sex, tumor_histology, 
